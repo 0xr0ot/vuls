@@ -27,8 +27,10 @@ update: setup
 	glide update
 
 bin: main.go deps
-	go build -ldflags "$(LDFLAGS)" -o $@ $<
+	go build -ldflags "$(LDFLAGS)" -o vuls $<
 
+install: main.go deps
+	go install -ldflags "$(LDFLAGS)"
 
 all: test
 
